@@ -3,12 +3,11 @@ package weather
 import (
 	"WeatherAgent/src/utils/httpService"
 	"encoding/json"
-	"fmt"
 	"time"
 )
 
 // GetWeather 实现天气的获取
-func GetWeather() {
+func GetWeather() (map[string]interface{}, error) {
 	weatherAgent := httpService.NewHttpClient("https://api.seniverse.com/v3/weather/now.json?", 10*time.Second)
 	res, err := weatherAgent.Get("key=SuNdzfgEMTX_FjaUz&location=beijing&language=zh-Hans&unit=c")
 	if err != nil {
@@ -19,5 +18,5 @@ func GetWeather() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(result)
+	return result, err
 }
