@@ -12,8 +12,15 @@ type Config struct {
 		User     string `yaml:"user"`
 		Password string `yaml:"password"`
 		Port     string `yaml:"port"`
-		DBname   string `yaml:"dbname"`
+		DBname   string `yaml:"database"`
 	} `yaml:"mysql"`
+	Redis struct {
+		Host     string `yaml:"host"`
+		Port     string `yaml:"port"`
+		Password string `yaml:"password"`
+		DB       int    `yaml:"db"`
+		PoolSize int    `yaml:"pool_size"`
+	} `yaml:"redis"`
 }
 
 func InitConfig(path string) (*Config, error) {

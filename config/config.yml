@@ -1,6 +1,13 @@
 mysql:
-  host: localhost
+  host: 8.152.192.41
   port: 3306
   user: root
-  password: root
-  DBname: weatherAgent
+  password: a1234
+  database: weatherAgent
+
+redis:
+  host: 8.152.192.41
+  port: 6379
+  password: a1234
+  db: 1
+  pool_size: 100
